@@ -3,9 +3,14 @@
 STR_LENGTH=0
 WORD=""
 
+# Check is there is at least 1 parameter
 if [ $# -gt 0 ]; then
+	
+	# Check if file is valid and accessible
 	if [ -r "$1" ]; then
 		for word in $(strings $1); do
+
+			# Store the world and its length if it's the biggest
 			if [ ${#word} -gt $STR_LENGTH ]; then
 				STR_LENGTH=${#word}
 				WORD=$word
